@@ -1,0 +1,13 @@
+expose:
+  type: ingress
+  ingress:
+    hosts:
+      core: coreharbor.eqslearning.com
+      notary: notaryharbor.eqslearning.com
+
+externalURL: http://coreharbor.eqslearning.com
+
+persistence:
+  enabled: true
+
+harborAdminPassword: "Eqsadmin@1234"

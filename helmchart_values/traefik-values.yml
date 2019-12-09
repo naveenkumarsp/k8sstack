@@ -1,0 +1,11 @@
+debug:
+  enabled: true
+
+dashboard:
+  enabled: true
+  domain: traefik.eqslearning.com
+  serviceType: ClusterIP
+
+metrics:
+  prometheus:
+    enabled: true

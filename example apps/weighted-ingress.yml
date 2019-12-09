@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: weighted-ingress
+  annotations:
+      traefik.ingress.kubernetes.io/service-weights: |
+          nginxhello-blue: 70%
+          nginxhello-red: 30%
+spec:
+  rules:
+  - host: weighted.eqslearning.com
+    http:
+      paths:
+      - backend:
+          serviceName: nginxhello-blue
+          servicePort: 80
+      - backend:
+          serviceName: nginxhello-red
+          servicePort: 80

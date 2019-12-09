@@ -1,0 +1,12 @@
+sonarProperties:
+  sonar.forceAuthentication: false
+
+# https://docs.sonarqube.org/display/PLUG/Plugin+Version+Matrix
+plugins:
+  install:
+    - 'https://binaries.sonarsource.com/Distribution/sonar-java-plugin/sonar-java-plugin-5.13.0.18197.jar'
+    - 'https://binaries.sonarsource.com/Distribution/sonar-web-plugin/sonar-web-plugin-2.5.0.476.jar'
+    - 'https://binaries.sonarsource.com/Distribution/sonar-scm-git-plugin/sonar-scm-git-plugin-1.2.jar'
+    - 'https://binaries.sonarsource.com/Distribution/sonar-csharp-plugin/sonar-csharp-plugin-5.8.0.660.jar'
+    - 'https://binaries.sonarsource.com/Distribution/sonar-javascript-plugin/sonar-javascript-plugin-2.21.1.4786.jar'
+    - 'https://binaries.sonarsource.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.10.0.2087.jar'

@@ -1,0 +1,103 @@
+## Enable possibility to skip login
+enableSkipLogin: true
+
+## Serve application over HTTP without TLS
+enableInsecureLogin: true
+
+service:
+  type: ClusterIP
+  externalPort: 80
+
+
+ingress:
+  ## If true, Kubernetes Dashboard Ingress will be created.
+  ##
+  enabled: true
+
+  ## Kubernetes Dashboard Ingress annotations
+  ##
+  ## Add custom labels
+  # labels:
+  #   key: value
+  # annotations:
+  #   kubernetes.io/ingress.class: nginx
+  #   kubernetes.io/tls-acme: 'true'
+  ## If you plan to use TLS backend with enableInsecureLogin set to false
+  ## (default), you need to uncomment the below.
+  ## If you use ingress-nginx < 0.21.0
+  #   nginx.ingress.kubernetes.io/secure-backends: "true"
+  ## if you use ingress-nginx >= 0.21.0
+  #   nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+
+
+  ## Kubernetes Dashboard Ingress paths
+  ##
+  paths:
+    - /
+  #  - /*
+
+  ## Kubernetes Dashboard Ingress hostnames
+  ## Must be provided if Ingress is enabled
+  ##
+  hosts:
+  hosts:
+     - kubernetes.eqslearning.com
+
+  ## Kubernetes Dashboard Ingress TLS configuration
+  ## Secrets must be manually created in the namespace
+  ##
+  # tls:
+  #   - secretName: kubernetes-dashboard-tls
+  #       - kubernetes-dashboard.domain.com
+  #     hosts:
+  
+rbac:
+  # Specifies whether RBAC resources should be created
+  create: true
+
+  # Specifies whether cluster-admin ClusterRole will be used for dashboard
+  # ServiceAccount (NOT RECOMMENDED).
+  clusterAdminRole: true
+
+  # Start in ReadOnly mode.
+  # Only dashboard-related Secrets and ConfigMaps will still be available for writing.
+  #
+  # Turn OFF clusterAdminRole to use clusterReadOnlyRole.
+  #
+  # The basic idea of the clusterReadOnlyRole comparing to the clusterAdminRole
+  # is not to hide all the secrets and sensitive data but more
+  # to avoid accidental changes in the cluster outside the standard CI/CD.
+  #
+  # Same as for clusterAdminRole, it is NOT RECOMMENDED to use this version in production.
+  # Instead you should review the role and remove all potentially sensitive parts such as
+  # access to persistentvolumes, pods/log etc.
+  # clusterReadOnlyRole: true
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+livenessProbe:
+  # Number of seconds to wait before sending first probe
+  initialDelaySeconds: 30
+  # Number of seconds to wait for probe response
+  timeoutSeconds: 30
+
+podDisruptionBudget:
+  # https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+  enabled: false
+  minAvailable:
+  maxUnavailable:
+
+
+## PodSecurityContext for pod level securityContext
+##
+# securityContext:
+#   runAsUser: 1001
+#   runAsGroup: 2001
+securityContext: {}
+
+networkPolicy: false

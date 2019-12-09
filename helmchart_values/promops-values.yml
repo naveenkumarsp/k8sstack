@@ -1,0 +1,37 @@
+alertmanager:
+  ingress:
+    enabled: true
+    hosts:  
+       - alertmanager.eqslearning.com
+grafana:
+  ingress:
+    enabled: true
+    hosts:  
+       - grafana.eqslearning.com
+kubeApiServer: 
+  tlsConfig:
+    insecureSkipVerify: true
+kubelet:
+  serviceMonitor:
+    https: false
+kubeControllerManager:
+   # Skip TLS certificate validation when scraping
+    insecureSkipVerify: true
+#Kube-dns is enabled on the stack
+#not required as we are using KOPS in AWS for switching and routing
+coreDns:
+  enabled: true
+kubeProxy:
+  enabled: true
+kubeEtcd:
+  serviceMonitor:
+    insecureSkipVerify: true
+kubeScheduler:
+    https: false
+    insecureSkipVerify: true
+prometheus:
+  ingress:
+    enabled: true
+    hosts:
+       - prometheus.eqslearning.com
+
