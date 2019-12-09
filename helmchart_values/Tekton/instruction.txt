@@ -1,0 +1,9 @@
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user eqsadmin
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user clusterUser_AKS-RG_myaks
+kubectl config view
+
+curl -LO https://github.com/tektoncd/cli/releases/download/v0.5.1/tkn_0.5.1_Linux_x86_64.tar.gz
+sudo tar xvzf tkn_0.5.1_Linux_x86_64.tar.gz -C /usr/local/bin/ tkn
+
+tkn taskrun describe echo-hello-world-task-run
+tkn taskrun logs echo-hello-world-task-run
