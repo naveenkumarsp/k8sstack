@@ -60,3 +60,5 @@ plugins:
     - 'https://binaries.sonarsource.com/Distribution/sonar-php-plugin/sonar-php-plugin-2.10.0.2087.jar'
     - 'https://binaries.sonarsource.com/Distribution//sonar-jacoco-plugin/sonar-jacoco-plugin-1.0.2.475.jar'
     - 'https://binaries.sonarsource.com/Distribution/sonar-pmd-plugin/sonar-pmd-plugin-2.5.jar'
+    - 'https://binaries.sonarsource.com/Distribution//sonar-jacoco-plugin/sonar-jacoco-plugin-1.0.2.475.jar'
+    - 'https://binaries.sonarsource.com/Distribution/sonar-pmd-plugin/sonar-pmd-plugin-2.5.jar'
