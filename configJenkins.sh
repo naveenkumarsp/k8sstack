@@ -26,3 +26,6 @@ cp config /root/.kube/config
 
 #validate the connection
 kubectl get all --all-namespaces
+
+ssh-keygen -t rsa -b 4096 -P "" -C "jenkinsConn" -f /root/.ssh/id_rsa -q
+sshpass -p ${DOCKER_HOST_PASSWORD} ssh-copy-id -o StrictHostKeyChecking=no jenkins@{DOCKER_HOST_IP}
