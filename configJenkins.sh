@@ -1,5 +1,3 @@
-!#/bin/bash
-
 #install maven
 
 apt update
@@ -26,3 +24,14 @@ cp config /root/.kube/config
 
 #validate the connection
 kubectl get all --all-namespaces
+
+rm -f /root/.ssh/id_rsa*
+
+ssh-keygen -t rsa -b 4096 -P "" -C "jenkinsConn" -f /root/.ssh/id_rsa -q
+
+apt install -y sshpass
+echo "${DOCKER_HOST_PASSWORD}"
+echo "${DOCKER_HOST_IP}"
+
+sshpass -p "${DOCKER_HOST_PASSWORD}" ssh-copy-id -i /root/.ssh/id_rsa.pub -o StrictHostKeyChecking=no jenkins@${DOCKER_HOST_IP}
+ssh jenkins@${DOCKER_HOST_IP} hostname
