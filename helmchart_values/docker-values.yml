@@ -2,7 +2,7 @@ ingress:
   enabled: true
   path: /
   hosts:
-    - docker.eqslearning.com
+    - registry.eqslearning.com
 
 persistence:
-  enabled: false
+  enabled: true
