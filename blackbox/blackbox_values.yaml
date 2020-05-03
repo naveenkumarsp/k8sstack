@@ -21,6 +21,7 @@ image:
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
   ##
   # pullSecrets:
+  
   #   - myRegistrKeySecretName
 
 ## User to run blackbox-exporter container as
@@ -138,7 +139,7 @@ serviceMonitor:
 ## Custom PrometheusRules to be defined
 ## ref: https://github.com/coreos/prometheus-operator#customresourcedefinitions
 prometheusRule:
-  enabled: false
+  enabled: true
   additionalLabels: {}
   namespace: "monitoring"
   rules: []
